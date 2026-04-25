@@ -1,0 +1,34 @@
+;Définition de pi
+(define pi (* 4 (atan 1.0)))
+
+;Définition du volume minimum accepté pour l’expérience
+(define volume-minimum 450)
+
+;Définition du rayon minimum accepté pour l’expérience
+(define rayon-minimum 7)
+
+;Retourne le volume d’un cylindre 
+(define (calcul-volume-cylindre rayon hauteur)
+(* pi r r h))
+
+;Retourne vrai le cylindre est accepté pour l’expérience, faux sinon
+(define (accepte-cylindre rayon hauteur)
+(and (> (calcul-volume-cylindre rayon hauteur) volume-minimum) (> rayon rayon-minimum)))
+
+;Informe l’utilisateur•rice par un message si le cylindre est accepté ou rejeté pour l’expérience
+(define (informe accepte)
+(if accepte "Cylindre adapté pour l’expérience" "Cylindre rejeté"))
+
+;Accepte ou rejette un cylindre pour l’expérience
+(define (filtre-cylindre rayon hauteur)
+(informe (accepte-cylindre rayon hauteur)))
+
+;Tests
+;Cylindre accepté
+(informe (accepte-cylindre 7 3))
+;ou
+(filtre-cylindre 7 3)
+;Cylindre rejeté
+(informe (accepte-cylindre 2 3))
+;ou
+(filtre-cylindre 2 3)

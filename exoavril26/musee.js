@@ -1,7 +1,7 @@
-/** * * Nous sommes un musée, nous avons un robot qui doit demander l'age des visiteurs * afin
+/* Nous sommes un musée, nous avons un robot qui doit demander l'age des visiteurs * afin
 de leur donner le prix de leurs billets. * * Prix adulte: 12 € => age adulte > 12 ans. * Prix enfant:
 6 € => age enfant est entre 12 ans (compris) et 5 ans (compris) => 12 >= age >= 5 * Prix
-bambin: gratuit => age < 5 ans * */ 
+bambin: gratuit => age < 5 ans  */   
 
 const readline = require("readline");
 
