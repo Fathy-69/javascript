@@ -80,4 +80,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         recupereMeteo(ville);
     });
+    //en appuyant sur le bouton entree
+    villeInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Évite la soumission par défaut si l'input est dans un <form>
+            rechercherButton.click(); // Simule le clic sur le bouton pour réutiliser le code existant
+        }
+    });
 });
