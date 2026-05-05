@@ -9,49 +9,46 @@
 </head>
 <body>
     <section class="principal"> 
-        <h1> Météo App</h1>
-            <div class="container">
-<h1>Application météo</h1>
-
-<div class="recherche">
-<input type="text" id="ville" placeholder="Entrez le nom d'une ville" value="Lille">
-<button id="rechercher">Rechercher</button>
-</div>
-
-<div class="chargement" id="chargement">
-Récupération de la météo...
-</div>
-
-<div class="erreur" id="erreur"></div>
-
-<div class="meteo" id="meteo">
-<h2 id="nomVille"></h2>
-<div id="icon" class="icon"></div>
-<div class="temperature" id="temperature">--°C</div>
-<div id="description"></div>
-</div>
-
-<div class="details">
-<div class="detail">
-<div>Ressenti</div>
-<div id="ressenti">--°C</div>
-</div>
-
-<div class="detail">
-<div>Humidite</div>
-<div id="humidite">--%</div>
-</div>
-
-<div class="detail">
-<div>Vent</div>
-<div id="vent">--km/h</div>
-</div>
-</div>
-</div>
-
-
-<div class="footer" id="footer"></div>
-
+        <div class="container">
+            <h1>Application météo</h1>
+            
+            <div class="recherche">
+                <input type="text" id="ville" placeholder="Entrez le nom d'une ville" value="Lille">
+                <button id="rechercher">Rechercher</button>
+            </div>
+            
+            <div class="chargement" id="chargement">
+                Récupération de la météo...
+            </div>
+            
+            <div class="erreur" id="erreur"></div>
+            
+            <div class="meteo" id="meteo">
+                <h2 id="nomVille"></h2>
+                <div id="icon" class="icon"></div>
+                <div class="temperature" id="temperature">--°C</div>
+                <div id="description"></div>
+            </div>
+            
+            <div class="details">
+                <div class="detail">
+                    <div>Ressenti</div>
+                    <div id="ressenti">--°C</div>
+                </div>
+                
+                <div class="detail">
+                    <div>Humidité</div>
+                    <div id="humidite">--%</div>
+                </div>
+                
+                <div class="detail">
+                    <div>Vent</div>
+                    <div id="vent">--km/h</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer" id="footer"></div>
     </section>  
 </body>
 </html>

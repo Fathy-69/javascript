@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     //Récuperation tous les éléments du formulaire dom
-    const villeInput = document.querySelectorAll('#ville');
+    const villeInput = document.querySelector('#ville');
     const rechercherButton = document.querySelector('#rechercher');
     const chargmentDiv = document.querySelector('#chargement');
     const erreurDiv = document.querySelector('#erreur');
@@ -29,8 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${API_KEY}&units=metric&lang=fr`;
             console.log(`Récupération de la météo pour une ville: ${ville}`);
             
-            //faire la requete pour recuperer la météo
+            //faire la requête pour recuperer la météo
             const response = await fetch(url);
+
+            //verifier si la requête a réussi
+            if (!response.ok){
+                if(response.status === 404){
+                    throw new Error(`La ville "${ville}" n'a pas été trouvée.`);
+                }else{ 
+                    throw new Error(`Erreur ${response.status}: ${response.statusText}`);
+                }
+            }
             
             //convertir les données
             const donnees = await response.json();
@@ -44,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
             descriptionElement.textContent = description.charAt(0).toUpperCase() + description.slice(1);
             ressentiElement.textContent = 'Ressenti: ' + Math.round(donnees.main.feels_like) + '°C';
             humiditeElement.textContent = 'Humidité: ' + donnees.main.humidity + '%';
-            ventElement.textContent = 'Vent: ' + donnees.wind.speed + ' m/s';
+            ventElement.textContent = 'Vent: ' + Math.round(donnees.wind.speed * 3.6 )+ ' km/h';
             //Afficher l'icône météo
             const weatherIcon = donnees.weather[0].icon;
-            iconElement.innerHTML = `<img src="http://openweathermap.org/img/wn/${donnees.weather[0].icon}.png" alt="${donnees.weather[0].description}">`; //a verifier si le lien de l'icône est correct
-
+            iconElement.innerHTML = `<img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${description}">`;
+            // Définir l'arrière-plan en fonction de la météo
             //obtenir l'heure actuelle pour la ville
             const heurelocale = new Date();
             //afficher le bloc météo
@@ -64,10 +73,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     //faire la requete pour recuperer la météo
     rechercherButton.addEventListener('click', function() {
-        const ville = villeInput[0].value.trim();
+        const ville = villeInput.value.trim();
         if (ville === '') {
             alert('Veuillez entrer le nom d\'une ville.');
             return;
         }
         recupereMeteo(ville);
     });
+});
