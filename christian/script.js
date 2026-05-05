@@ -1,10 +1,10 @@
-// 1. Les variables
+/* 1. Les variables
 
 // var nom = "Christian"; 
 // var est une ancienne façon de déclarer une variable, 
 // il est recommandé d'utiliser let ou const à la place
 
-const nomFormateur = "Christian"; 
+*/const nomFormateur = "Christian"; /*
 // const est utilisé pour les variables qui ne changent pas
 
 let score = 0; 
@@ -48,29 +48,103 @@ bouton.addEventListener("click", saluer);
 if (titrePrincipal) {
   titrePrincipal.textContent = "Bienvenue " + nomFormateur;
 }
+// 8. Les tableaux et les méthodes
 
-
-let invité=["Jean","Paul","Jacques","Michel","Sophie","Marie","Isabelle","Lucie","Claire","Julie"];
+let invite=["Jean","Paul","Jacques","Michel","Sophie","Marie","Isabelle","Lucie","Claire","Julie"];
 let nomUtilisateur="Bob";
-if (invité.includes(nomUtilisateur)) {
+if (invite.includes(nomUtilisateur)) {
     console.log("Bienvenue " + nomUtilisateur + " !");
 } else {
     console.log("Désolé, vous n'êtes pas sur la liste des invités.");
 }
 
-invité.shift("");
-
-console.log(invité);
-invité.unshift("Delphine");
-
-console.log(invité);
-console.log("Il y a " + invité.length + " invités dans la liste.");
-console.log(invité.indexOf("Bob") );
+invite.shift("");
+console.table(invite);
+console.log(invite);
+invite.unshift("Delphine");
+console.log(invite);
+console.log("Il y a " + invite.length + " invités dans la liste.");
+console.log(invite.indexOf("Michel") );
+console.table(invite.slice(2, 5));
 
 const monTitre = document.querySelector("h1");
-let nouveauMessage = "Bienvenue sur notre site2 " + nomFormateur;
+let nouveauMessage = "Bienvenue sur notre site " + nomFormateur;
 monTitre.textContent = nouveauMessage;
+
 let clics = 0;
 const affichages = document.querySelector("h1");
 clics += 1;
-affichages.textContent = "Nombre de clics : " + clics;
+affichages.textContent = "Nombre de clics : " + clics;*/
+// 9. Les objets
+/*const utilisateur = { 
+  nom: "Sophie",
+  age: 30,
+  estConnecte: true,
+  saluer: function() {
+    console.log("Bonjour, je m'appelle " + this.nom);
+  }
+};
+console.log(utilisateur.age);
+let proprieteCherchee = "nom";
+console.log(utilisateur[proprieteCherchee]);
+utilisateur.saluer();
+
+for (let cle in utilisateur) {
+  console.log("l'utilisateur contient cette propriété :" + cle + " : " +" et cette valeur--> "+ utilisateur[cle]);
+}*/
+
+const personnage = {
+  pseudo: "Shadow",
+  pointsDeVie: 100,
+  niveau: 1,
+  subirDegats: function() {
+    this.pointsDeVie -= 10;
+  },
+  seSoigner: function() {
+    this.pointsDeVie += 10;
+    if (this.pointsDeVie > 100) {
+      this.pointsDeVie = 100; // Limite les points de vie à 100
+    }
+  }
+};
+
+const affichageHp = document.querySelector("#hp");
+const boutonDegats = document.querySelector("#btn-attack");
+const boutonSoigner = document.querySelector("#btn-soigner");
+//fonction de mise à jour des points de vie affichés
+function actualiserVue() {
+  affichageHp.textContent = "PV : " + personnage.pointsDeVie + "/100";
+ //condition:personnage faible
+  if (personnage.pointsDeVie <= 20) {
+    affichageHp.style.color = "red";
+  } else {
+    affichageHp.style.color = "black";
+  }
+}
+boutonDegats.addEventListener("click", function() {
+  personnage.subirDegats();//on change les points de vie du personnage
+  actualiserVue(); //on met à jour l'affichage après le changement
+});
+// se soigner
+
+boutonSoigner.addEventListener("click", function() {
+  personnage.seSoigner();
+  actualiserVue();
+});
+
+/*const voiture = {
+  marque: "Toyota",
+  modele: "Corolla",
+  annee: 2020,
+  demarrer: function() {
+    console.log("La voiture démarre !");
+  }
+};
+
+const livre = {
+  titre: "Le JavaScript pour les nuls",
+  auteur: "John Doe",
+  pages: 300,
+  lire: function() {
+    console.log("Vous lisez le livre : " + this.titre);
+  }*/

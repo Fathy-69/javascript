@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma premiere page web en JS</title>
+    <style>
+body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+.card { border: 2px solid #333; padding: 20px; border-radius: 10px; text-align: center; width: 200px; }
+.hp { font-weight: bold; font-size: 1.2em; margin: 15px 0; color:black }
+button { cursor: pointer; padding: 10px; background-color: #ff4757; color: white; border: none; border-radius: 5px; }
+button:active { transform: scale(0.95); }
+</style>
 <head>
 <body>
-    <h1 id="titre">Bonjour tout le monde !</h1>
-    <button id="monBouton">Cliquez-ici !</button>
+    <div class="card">
+        <h2 class="pseudo">Shadow</h2>
+        <p id="hp">PV : 100/100</p>
+        <button id="btn-attack">Dégâts</button>
+        <button id="btn-soigner">Soigner</button>
+    </div>
+     <!---- <h1 id="titre">Bonjour tout le monde !</h1>
+    <button id="monBouton">Cliquez-ici !</button>-->
     <script src="script.js"></script>
 </body>
 </html>
