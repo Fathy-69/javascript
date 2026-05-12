@@ -93,45 +93,6 @@ for (let cle in utilisateur) {
   console.log("l'utilisateur contient cette propriété :" + cle + " : " +" et cette valeur--> "+ utilisateur[cle]);
 }*/
 
-const personnage = {
-  pseudo: "Shadow",
-  pointsDeVie: 100,
-  niveau: 1,
-  subirDegats: function() {
-    this.pointsDeVie -= 10;
-  },
-  seSoigner: function() {
-    this.pointsDeVie += 10;
-    if (this.pointsDeVie > 100) {
-      this.pointsDeVie = 100; // Limite les points de vie à 100
-    }
-  }
-};
-
-const affichageHp = document.querySelector("#hp");
-const boutonDegats = document.querySelector("#btn-attack");
-const boutonSoigner = document.querySelector("#btn-soigner");
-//fonction de mise à jour des points de vie affichés
-function actualiserVue() {
-  affichageHp.textContent = "PV : " + personnage.pointsDeVie + "/100";
- //condition:personnage faible
-  if (personnage.pointsDeVie <= 20) {
-    affichageHp.style.color = "red";
-  } else {
-    affichageHp.style.color = "black";
-  }
-}
-boutonDegats.addEventListener("click", function() {
-  personnage.subirDegats();//on change les points de vie du personnage
-  actualiserVue(); //on met à jour l'affichage après le changement
-});
-// se soigner
-
-boutonSoigner.addEventListener("click", function() {
-  personnage.seSoigner();
-  actualiserVue();
-});
-
 /*const voiture = {
   marque: "Toyota",
   modele: "Corolla",
@@ -148,3 +109,49 @@ const livre = {
   lire: function() {
     console.log("Vous lisez le livre : " + this.titre);
   }*/
+
+   //javascript
+   const saluer = function(nom) { 
+   return"Bonjour, " + nom + " !";
+   }
+   //ES6-ECMAScript 6
+    const saluerES6 = (nom) => {
+    return "Bonjour, " + nom + " !";
+    }
+    //version encore plus concise
+    const saluerES6Concise = nom => "Bonjour, " + nom + " !";
+    
+    console.log(saluer("Alice"));
+    console.log(saluerES6("Bob"));
+    console.log(saluerES6Concise("Charlie"));
+    const user = "Hichem";
+    const points = 100;
+    const message = `Bienvenue, ${user},Tu as ${points} points !`;
+    console.log(message);
+   
+    const bienvenue = function(user) { 
+        return `Bienvenue, ${user.nom} !`;
+     }
+      const bienvenueES6 = (user) => `Bienvenue, ${user.nom} !`;
+      console.log(bienvenue({nom: "Alice"}));
+      console.log(bienvenueES6({nom: "Bob"}));  
+const base = [1,2,3];
+const complet = [...base,4,5,6];
+const copie = [4,5,...base];
+console.log(complet);
+console.log(copie);
+
+//classe ES6
+class robot {
+  constructor(nom, modele) {  /* 2 paramètres pour le constructeur de la classe robot*/
+    this.nom = nom;
+    this.modele = modele;
+  } 
+  allumer () {
+    console.log(this.nom + " est prêt !"); /* ou console.log(` ${this.nom} est prêt !`);*/
+  }
+}
+const r2d2 = new robot("R2D2" ,"droïde astromech"); /*nouvelle instance de la classe robot avec les paramètres nom et modele*/
+r2d2.allumer();
+const astro = new robot("Astro", "droïde de protocole");
+astro.allumer();
