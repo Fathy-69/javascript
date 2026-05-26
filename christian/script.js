@@ -108,7 +108,7 @@ const livre = {
   pages: 300,
   lire: function() {
     console.log("Vous lisez le livre : " + this.titre);
-  }*/
+  }
 
    //javascript
    const saluer = function(nom) { 
@@ -141,17 +141,27 @@ const copie = [4,5,...base];
 console.log(complet);
 console.log(copie);
 
-//classe ES6
-class robot {
-  constructor(nom, modele) {  /* 2 paramètres pour le constructeur de la classe robot*/
-    this.nom = nom;
-    this.modele = modele;
-  } 
-  allumer () {
-    console.log(this.nom + " est prêt !"); /* ou console.log(` ${this.nom} est prêt !`);*/
-  }
+// 10. Les classes*/
+import { pi, surfaceCercle, perimetreCercle } from "./19mai/outil.js";
+import { convertirEnEuro, convertirEnDollar, default as saluer} from "./19mai/convertisseur.js";
+import direBonjour from "./19mai/salutation.js";
+import Utilisateur from "./19mai/utilisateur.js";
+const user1 = new Utilisateur("Doe", "John");
+console.log("Pi : " + pi);
+console.log("Surface du cercle de rayon 5 : " + surfaceCercle(5));
+console.log("Périmètre du cercle de rayon 5 : " + perimetreCercle(5));
+console.log(direBonjour("Jean"));
+console.log(saluer("Aicha"));
+console.log(user1.nom + " " + user1.prenom);
+
+import { ajouterAuPanier } from './boutique/script.js';
+
+if (typeof document !== 'undefined') {
+    const bouton = document.querySelector('button');
+
+    if (bouton) {
+        bouton.addEventListener('click', () => {
+            ajouterAuPanier("Livre");
+        });
+    }
 }
-const r2d2 = new robot("R2D2" ,"droïde astromech"); /*nouvelle instance de la classe robot avec les paramètres nom et modele*/
-r2d2.allumer();
-const astro = new robot("Astro", "droïde de protocole");
-astro.allumer();

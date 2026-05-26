@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
-    //faire la requete pour recuperer la météo
+    //faire la requete pour recuperer la météo  ecouteur d'événement sur le bouton de recherche
     rechercherButton.addEventListener('click', function() {
         const ville = villeInput.value.trim();
         if (ville === '') {
@@ -87,4 +87,10 @@ document.addEventListener("DOMContentLoaded", function() {
             rechercherButton.click(); // Simule le clic sur le bouton pour réutiliser le code existant
         }
     });
+    //recuperer la météo pour une ville par défaut au chargement de la page
+if(villeInput.value.trim() !== ''){
+    recupereMeteo(villeInput.value.trim());
+}else{
+    recupereMeteo('Lyon');
+};  
 });
