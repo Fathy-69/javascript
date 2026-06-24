@@ -1,0 +1,194 @@
+/*====RESET====*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* ====TITRE==== */
+h1 {
+    text-align: center;
+    margin: 40px 0;
+    color: #f07102;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+
+/*====CONTENEUR====*/
+#app {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+/*====FORMULAIRE====*/
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/*====FIELDSET====*/
+fieldset {
+
+    border: 10px solid #014e79;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+legend {
+
+    padding: 0 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #014e79;
+}
+
+
+/*====LABELS====*/
+
+label {
+    font-weight: 600;
+    color: #374151;
+}
+
+
+/*====INPUT SELECT====*/
+input,
+select {
+
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    font-size: 1rem;
+    transition: all .3s ease;
+
+}
+
+
+
+input:focus,
+select:focus {
+
+    outline: none;
+    border-color: #014e79;
+    box-shadow:
+        0 0 0 3px rgba(1,78,121,.15);
+
+}
+
+
+/*====GROUPES DE CHAMPS====*/
+
+.champ {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/*====BOUTON====*/
+
+button {
+    margin-top: 15px;
+    align-self: center;
+    width: 50%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #f07102;
+    color:white;
+    font-size:1.1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover {
+    background:#0369a1;
+    transform:translateY(-2px);
+}
+
+
+button:active {
+    transform:scale(.98);
+}
+
+
+
+/*====RESULTAT====*/
+
+.resultat {
+    margin-top:20px;
+    padding:20px;
+    background:#e0f2fe;
+    border-left:5px solid #014e79;
+    border-radius:10px;
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+/*====RESPONSIVE TABLETTE====*/
+
+@media(max-width:768px){
+    #app {
+        width:95%;
+    }
+
+    form {
+        padding:20px;
+    }
+
+    fieldset {
+        padding:15px;
+    }
+
+    button {
+        width:100%;
+    }
+}
+
+/*=====RESPONSIVE MOBILE====*/
+
+@media(max-width:480px){
+    h1 {
+        margin:25px 0;
+    }
+
+    form {
+        padding:15px;
+        border-radius:10px;
+    }
+
+    legend {
+        font-size:1.1rem;
+    }
+
+    input,
+    select {
+        font-size:.95rem;
+    }
+}
