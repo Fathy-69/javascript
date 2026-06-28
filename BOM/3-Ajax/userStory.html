@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice</title>
+  </head>
+  <style>
+    table,th,td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th,td {
+      padding: 5px;
+    }
+  </style>
+  <body>
+    <h1>
+      Rechercher un dépôt dans votre ville
+    </h1>
+    <br /><br />
+    <p id="showCity"></p>
+    <table id="demo"></table>
+    <script>
+      //Notre requête AJAX
+      const xhttp = new XMLHttpRequest();
+      let city;
+      xhttp.onload = function() {
+        const xmlDoc = xhttp.responseXML;
+        city = xmlDoc.getElementsByTagName("CITY");
+        loadCity();
+      };
+      xhttp.open("GET", "userStory.xml");
+      xhttp.send();
+
+//Notre fonction pour analyser notre XML et afficher sous forme de tableau
+function loadCity() {
+        let table = "<tr><th>Ville</th><th>Code postal</th></tr>";
+        let i = 0;
+for (const ville of city) {
+     table += `
+            <tr onclick="displayCity(${i})">
+                <td>${ville.getElementsByTagName("NAME")[0].textContent}</td>
+                <td>${ville.getElementsByTagName("ZIP")[0].textContent}</td>
+            </tr>
+        `;
+
+        i++;
+    }
+        document.getElementById("demo").innerHTML = table;
+      }
+
+      <!--displayCity-->
+      function displayCity(i) {
+
+    const ville = city[i];
+
+    document.getElementById("showCity").innerHTML = `
+        <h3>${ville.getElementsByTagName("NAME")[0].textContent}</h3>
+
+        <p><strong>Code postal :</strong>
+        ${ville.getElementsByTagName("ZIP")[0].textContent}</p>
+
+        <p><strong>Adresse :</strong>
+        ${ville.getElementsByTagName("ADRESS")[0].textContent}</p>
+
+        <p><strong>Jour :</strong>
+        ${ville.getElementsByTagName("DAY")[0].textContent}</p>
+
+        <p><strong>Horaire :</strong>
+        ${ville.getElementsByTagName("HOUR")[0].textContent}</p>
+    `;
+}
+</script>
+</body>
+</html>

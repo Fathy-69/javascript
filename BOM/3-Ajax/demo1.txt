@@ -1,0 +1,2 @@
+<p>Salut, je m’appelle Charles, j’ai 34 ans et j’habite Paris.</p>
+<p>Aussi, j’apprends AJAX.</p>
