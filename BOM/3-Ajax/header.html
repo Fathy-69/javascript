@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Le format XML et AJAX</title>
+  </head>
+<body>
+<h2>L'objet XMLHttpRequest</h2>
+<p> La fonction getAllResponseHeader() renvoie les informations d'en-tête d'une ressource, comme la longueur, le type de serveur, le type de contenu,la dernière modification, etc.</p>
+<p id="demo1"></p>
+<script>
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("demo1").innerHTML = this.getAllResponseHeaders();
+    };
+xhttp.open("GET", "demo1.txt", true);
+xhttp.send();
+</script>
+</body>
+</html>

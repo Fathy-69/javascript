@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Le format XML et AJAX</title>
+  </head>
+<body>
+<h3>L'objet XMLHttpRequest</h3>
+<p id="demo"></p>
+<script>
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+    const xmlDoc = this.responseXML;
+    const x = xmlDoc.getElementsByTagName("name");
+    let txt = "";
+     for (const car of x) {
+    txt += car.textContent + "<br>";
+}
+    document.getElementById("demo").innerHTML = txt;
+};
+xhttp.open("GET", "car.xml", true);
+xhttp.send();
+</script>
+</body>
+</html>

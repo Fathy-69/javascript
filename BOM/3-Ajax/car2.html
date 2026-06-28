@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Le format JSON et AJAX</title>
+  <style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+  </style>
+</head>
+<br>
+
+<h1>L’objet XMLHttpRequest</h1>
+<button type="button" onclick="loadDoc()">Afficher liste véhicules</button>
+<br></br>
+<table id="demo"></table>
+<script>
+  // Création de la fonction
+  function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        myFunction(this);
+    };
+    xhttp.open("GET", "car2.xml", true);
+    xhttp.send();
+  } 
+  function myFunction(xml) {
+    const xmlDoc = xml.responseXML;
+    const x = xmlDoc.getElementsByTagName("car");  
+    let table ="<tr><th>Marque</th></tr>";
+    for (const element of x) {
+    table += `<tr><td>${element.getElementsByTagName("name")[0].textContent}</td></tr>`;
+    } 
+    document.getElementById("demo").innerHTML = table;
+  } 
+
+</script>
+</body>
+</html>
