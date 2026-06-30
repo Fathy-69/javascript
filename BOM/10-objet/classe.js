@@ -70,7 +70,7 @@ l'on crée un objet avec le mot-clé new.
 
 Il sert à initialiser les propriétés de l'objet.
 */
-class Person {
+class Person1 {
     nom;
     age;
     constructor(nom, age) {
@@ -78,7 +78,7 @@ class Person {
         this.age = age;
     }
 }
-const personne = new Person("Jordan", 30);
+const personne = new Person1("Jordan", 30);
 console.log(personne.nom);
 console.log(personne.age);
 /***********************************************************************
@@ -98,7 +98,7 @@ On utilise le mot-clé :
 
 extends
 */
-class Employe extends Person {
+class Employe extends Person1 {
     salaire;
     constructor(nom, age, salaire) {
         // Appelle le constructeur de Person
@@ -133,8 +133,8 @@ class Dog extends Animal {
         console.log(`${this.name} aboie : Wouf !`);
     }
 }
-const myDog = new Dog("Rufus", 3, "Labrador");
-myDog.makeSound();
+const monDog = new Dog("Rufus", 3, "Labrador");
+monDog.makeSound();
 /***********************************************************************
  * 7. Les méthodes statiques
  ***********************************************************************/
@@ -166,9 +166,9 @@ Impossible.
 Une classe enfant doit obligatoirement
 implémenter les méthodes abstraites.
 */
-class Shape {
+class Shape1 {
 }
-class Circle extends Shape {
+class Circle extends Shape1 {
     radius;
     constructor(radius) {
         super();
@@ -179,7 +179,7 @@ class Circle extends Shape {
     }
 }
 const myCircle = new Circle(5);
-console.log(myCircle.calculateArea());
+console.log("Aire :", myCircle.calculateArea());
 /***********************************************************************
  * 10. Implémentation d'une interface
  ***********************************************************************/

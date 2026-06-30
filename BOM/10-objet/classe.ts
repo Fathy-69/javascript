@@ -105,7 +105,6 @@ Il sert à initialiser les propriétés de l'objet.
 */
 
 class Person1 {
-
   nom: string;
   age: number;
 
@@ -141,7 +140,7 @@ On utilise le mot-clé :
 extends
 */
 
-class Employe extends Person {
+class Employe extends Person1 {
 
   salaire: number;
 
@@ -264,38 +263,23 @@ Impossible.
 Une classe enfant doit obligatoirement
 implémenter les méthodes abstraites.
 */
-
-abstract class Shape {
-
+abstract class Shape1 {
   abstract calculateArea(): number;
-
 }
 
-
-class Circle extends Shape {
-
-  radius: number;
-
-  constructor(radius: number) {
-
+class Circle extends Shape1 {
+  constructor(private radius: number) {
     super();
-
-    this.radius = radius;
-
   }
 
   calculateArea(): number {
-
     return Math.PI * this.radius ** 2;
-
   }
-
 }
 
 const myCircle = new Circle(5);
 
-console.log(myCircle.calculateArea());
-
+console.log("Aire :", myCircle.calculateArea());
 
 /***********************************************************************
  * 9. Les interfaces
