@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">                    
+<head>
+ <!-- Mis en place du cdn   -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.container {
+    width: 500px;
+    margin: 20px auto;
+}
+.box {
+    height: 300px;            /* contrôle la hauteur */
+    border: 2px solid #333;   /* ton cadre */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Chart.js doit respecter le conteneur */
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+</style>
+</head>
+<body>
+<h1>Notre production :</h1>
+<!-- Chart s'installe entre des éléments de div.-->
+<div class="container">
+    <div class="box">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+<script>
+let pieChart = document.querySelector("#myChart");
+          new Chart(pieChart, {
+            type: "pie",
+            data: {
+                labels: ['Production de vin en %', 'Production de tire-bouchons personnalisés en %', 'Production de fromage en %'],
+                datasets: [{
+                  data: [60, 10, 30],
+                  backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                  ],
+                hoverOffset: 4
+                }]
+            }
+          });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

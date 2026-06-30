@@ -15,7 +15,7 @@ On crée ensuite des objets à partir de cette classe grâce au mot-clé new.
 /***********************************************************************
  * 1. Déclaration d'une classe
  ***********************************************************************/
-class Car {
+class Voiture1 {
     // Propriétés de la classe
     make;
     model;
@@ -34,7 +34,7 @@ class Car {
 /***********************************************************************
  * 2. Instanciation (création d'un objet)
  ***********************************************************************/
-const myCar = new Car("Tesla", "Model S", 2022);
+const myCar = new Voiture1("Tesla", "Model S", 2022);
 myCar.drive();
 /*
 Résultat :
