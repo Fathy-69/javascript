@@ -14,7 +14,7 @@ const fillTextVertically2 = (text, x, y) => {
     const lineHeight = 10;
     y = y - lineHeight * text.length / 2;
     ctx.textAlign = "center";
-    for (var i = 0; i < text.length; i += 1) {
+    for (let i = 0; i < text.length; i += 1) {
         ctx.fillText(text[i], x, y + i * lineHeight);
     }
 }

@@ -32,8 +32,8 @@ input[type="text"], select {
 }
 
 button[type="submit"] {
-	background-color: #008CBA;
-	color: #fff;
+	background-color: #2708f1;
+	color: #ffffff;
 	padding: 10px;
 	border: none;
 	border-radius: 5px;

@@ -2,18 +2,18 @@
 document.querySelector("#submit-btn").addEventListener("click", function(event) {
   event.preventDefault();
   // Obtenir les valeurs des champs de saisie
-  var name = document.querySelector("#nameInput").value;
-  var email = document.querySelector("#emailInput").value;
-  var message = document.querySelector("#messageInput").value;
+  const name = document.querySelector("#name").value;
+  const email = document.querySelector("#email").value;
+  const message = document.querySelector("#message").value;
 
   // Vérifier si les champs sont vides
-  if (name === "" && email === "" && message === "") {
+  if (name === "" || email === "" || message === "") {
     alert("Veuillez remplir tous les champs");
     return;
   }
 
   // Vérifier si l'adresse e-mail est valide
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     alert("Adresse e-mail invalide");
     return;
